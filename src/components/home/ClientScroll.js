@@ -18,16 +18,16 @@ function ClientScroll(){
                     blurBorderColor={'#fff'}
                 >
                     <Slider.Slide>
-                        <img src={PDYLogo} alt="any" className='w-36' width='80px'/>
+                        <img src={PDYLogo} alt="any" className='w-36' height='80'/>
                     </Slider.Slide>
                     <Slider.Slide>
-                        <img src={ElonULogo} alt="any" className='w-36' width='80px'/>
+                        <img src={ElonULogo} alt="any" className='w-36' height='80px'/>
                     </Slider.Slide>
                     <Slider.Slide>
-                        <img src={DCLogo} alt="any" className='w-36' width='80px'/>
+                        <img src={DCLogo} alt="any" className='w-36' height='80px'/>
                     </Slider.Slide>
                     <Slider.Slide>
-                        <img src={CCMLogo} alt="any" className='w-36' width='80px'/>
+                        <img src={CCMLogo} alt="any" className='w-36' height='80px'/>
                     </Slider.Slide>
                 </Slider>
             </div>

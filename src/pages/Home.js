@@ -1,6 +1,7 @@
 import Layout from '../components/Layout.js'
 import Hero from '../components/hero/Hero.js'
 import ClientScroll from '../components/home/ClientScroll.js'
+
 function Project(){
     return(
         <Layout>
