@@ -24,6 +24,10 @@ label{
     padding-bottom: 4px;
 }
 
+.contactHero{
+    height: 20vh;
+}
+
 .contactContainer{
     display: flex;
     padding: 20px;

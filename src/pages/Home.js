@@ -3,7 +3,7 @@ import Hero from '../components/hero/Hero.js'
 import ClientScroll from '../components/home/ClientScroll.js'
 import InfoSection from '../components/info/InfoSection.js'
 
-function Project(){
+function Home(){
     return(
         <Layout>
             <Hero text="SEISMIC STUDIOS" heroSubText="making a ground-breaking impact"/>
@@ -31,4 +31,4 @@ function Project(){
     )
 }
 
-export default Project;
+export default Home;
