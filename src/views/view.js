@@ -59,7 +59,7 @@ export function addProject(project) {
 export function populateProjects(projectList) {
     let projectGallery = document.getElementById("gallery");
     projectGallery.innerHTML=""; // Clears the gallery to input the new objects
-    for (project of projectList) {
+    for (let project of projectList) {
         let newProject = addProject(project);
         projectGallery.append(newProject);
     }
