@@ -1,37 +1,63 @@
+import React from "react";
+const key = process.env.REACT_APP_CONTACT_KEY;
 function ContactForm(){
-    return(
-        <div class="contactContainer">
-            <div class="contactForm">
-                <form id="userForm" role="input" method="post" action="">
-                    <legend class="formLegend">
-                        <h2>CONTACT INFORMATION</h2>
-                        <hr class="heroLine"/>
-                    </legend>
-                    <div class="formItems">
+      const [result, setResult] = React.useState("");
 
-                        <div class="formItem">
+      const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", key);
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          setResult("Form Submitted Successfully");
+          event.target.reset();
+        } else {
+          console.log("Error", data);
+          setResult(data.message);
+        }
+      };
+    return(
+        <div className="contactContainer">
+            <div className="contactForm">
+                <form id="userForm" role="input" method="post" onSubmit={onSubmit}>
+                    <legend className="formLegend">
+                        <h2>CONTACT INFORMATION</h2>
+                        <hr className="heroLine"/>
+                    </legend>
+                    <div className="formItems">
+
+                        <div className="formItem">
                             <label for="firstname">First Name *</label>
                             <input id="firstname" placeholder="First Name" type="text" name="first" required/>
                         </div>
 
-                        <div class="formItem">
+                        <div className="formItem">
                             <label for="lastname">Last Name *</label>
 
                             <input id="lastname" placeholder="Last Name" type="text" name="last" required/>
                         </div>
 
-                        <div class="formItem">
+                        <div className="formItem">
                             <label for="email">Email *</label>
                             <input id="email" placeholder="Email" type="email" name="email" required/>
                         </div>
 
-                        <div class="formItem">
+                        <div className="formItem">
                             <label for="phone">Phone</label>
                             <input id="phone" placeholder="Phone Number" type="text" name="cellphone"/>
                         </div>
 
 
-                        <div class="formItem">
+                        <div className="formItem">
                             <br/>
                             <label for="industry">Industry</label>
                             <select id="industry" placeholder="Select an Option" name="industry">
@@ -55,7 +81,7 @@ function ContactForm(){
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <div class="formItem">
+                        <div className="formItem">
                             <label for="message">Message *</label>
                             <textarea id="message" placeholder="Enter message here..." name="message" cols="30"
                                 rows="5"></textarea>
@@ -64,7 +90,8 @@ function ContactForm(){
                             <br/>
                             <br/>
                         </div>
-                        <button class="button" id="submit" type="submit">Submit</button>
+                        <button className="button" id="submit" type="submit">Submit</button>
+                        <span className="formStatus" >{result}</span>
                     </div>
 
                 </form>

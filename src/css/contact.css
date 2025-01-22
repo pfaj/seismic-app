@@ -24,9 +24,9 @@ label{
     padding-bottom: 4px;
 }
 
-.contactHero{
-    height: 20vh;
-}
+/* .heroImageContainer > .heroImage { */
+/*     height: 20vh; */
+/* } */
 
 .contactContainer{
     display: flex;
@@ -85,6 +85,10 @@ label{
 .button:hover{
     background-color: var(--accentColor);
     color: var(--primaryColor);
+}
+
+.formStatus{
+    color: var(--accentColor);
 }
 
 @media(max-width: 1200px) {

@@ -52,7 +52,7 @@
     object-fit: cover;
 }
 
-.infoSection:nth-child(even) {
+.infoSection:nth-child(odd) {
     flex-direction: row-reverse;
 }
 
@@ -91,7 +91,7 @@
         font-size: 15px;
     }
 
-    .infoSection, .infoSection:nth-child(even) {
+    .infoSection, .infoSection:nth-child(odd) {
         flex-direction: column;
     }
     

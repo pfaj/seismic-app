@@ -1,5 +1,6 @@
 import Home from './pages/Home.js'
 import Contact from './pages/Contact.js'
+import About from './pages/About.js'
 import NotFound from './pages/NotFound.js'
 import ProjectPage from './pages/Project.js'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     {
         path: '/contact',
         element: <Contact/>,
+    },
+    {
+        path: '/about',
+        element: <About/>,
     },
 ]);
 
