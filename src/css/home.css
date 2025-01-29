@@ -118,6 +118,14 @@
     .infoButton{
         font-size: 14px;
     }
+
+    .w-36{
+        height: 80px;
+    }
+
+    .clientText{
+        font-size: 35px;
+    }
 }
 
 @media (max-width: 384px){

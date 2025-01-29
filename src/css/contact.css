@@ -100,21 +100,5 @@ label{
     .contactForm{
         width: 90%;
     }
-
-    .heroText{
-        font-size: 80px;
-    }
-    .heroSubText{
-        font-size: 30px;
-    }
 }
 
-@media(max-width: 480px) {
-    .heroText{
-        font-size: 60px;
-    }
-    .heroSubText{
-        font-size: 30px;
-    }
-
-}
