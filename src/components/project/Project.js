@@ -18,7 +18,6 @@ function Project() {
            {
                 projectList.map(project => {
                     return(
-                        //TODO: Make a component
                         <a key={project.id} 
                             onClick={() => SlideShowView.showProjectSlideshow(project.id)}
                         >

@@ -83,6 +83,11 @@ hr{
     cursor: pointer;
 }
 
+.footerParent{
+    padding: 20px 0px 20px 0px;
+    height: 10%;
+}
+
 .footer{
     background-color: var(--primaryColor);
     display: flex;
@@ -114,6 +119,7 @@ hr{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 20px;
 }
 

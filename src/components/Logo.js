@@ -6,7 +6,6 @@ function Logo({logoType}) {
         <div className="logo">
             <Link to="/">
                 <img className={logoType} src={logo} alt="Seismic Studios Logo"/>
-
             </Link>
         </div>
   );

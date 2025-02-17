@@ -4,7 +4,7 @@ import FooterItemSocial from './FooterItemSocial.js'
 
 function Footer() {
   return (    
-        <footer>
+        <footer className='footerParent'>
             <div className="footerContainer">
                 <FooterItemSitemap/>
                 <FooterItemLogo/>
