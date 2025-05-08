@@ -26,7 +26,7 @@
   justify-content: center;
 }
 
-.topRow>button {
+.topRow > button {
   border-radius: 8px;
   border: 2px solid var(--primaryColor);
   padding: 6px 8px;
@@ -35,13 +35,12 @@
   cursor: pointer;
 }
 
-.topRow>button:hover {
+.topRow > button:hover {
   background-color: var(--accentColor);
 }
 
-.buttonContainer>button {
+.buttonContainer > button {
   margin: 10px;
-
 }
 
 .editButton {
@@ -62,7 +61,7 @@
   cursor: pointer;
 }
 
-.deleteButton>img {
+.deleteButton > img {
   filter: brightness(100);
 }
 
@@ -115,9 +114,7 @@ td {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-
 }
-
 
 .editProjectBackground {
   position: fixed;

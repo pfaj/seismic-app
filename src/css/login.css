@@ -1,4 +1,4 @@
-.login{
+.login {
   color: var(--secondaryColor);
   background: var(--darkAccentColor);
   display: flex;
@@ -9,8 +9,8 @@
   align-items: center;
 }
 
-.loginContainer{
-  display:flex;
+.loginContainer {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -27,29 +27,28 @@
   padding: 10px;
 }
 
-.loginLogo{
+.loginLogo {
   width: 125px;
   height: 100%;
 }
 
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    font-size: 20px;
-    margin-top: 20px;
-    background-color: var(--primaryColor);
-    color: var(--secondaryColor);
-    border: 1px solid var(--accentColor);
-    border-radius: 8px;
-    padding: 5px;
-    width: 100px;
-    height: 30px;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  border: 1px solid var(--accentColor);
+  border-radius: 8px;
+  padding: 5px;
+  width: 100px;
+  height: 30px;
 }
 
-#errorField{
+#errorField {
   margin: 5px;
-  color: #BC1A1A;
+  color: #bc1a1a;
 }
-

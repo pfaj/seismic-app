@@ -1,4 +1,4 @@
-import { populateProjects } from '../views/view.js'
+import { populateProjects } from "../views/view.js";
 const projectsPath = "projects";
 
 const baseProjectsURL = import.meta.env.VITE_DOMAIN + "/" + projectsPath;
@@ -6,17 +6,21 @@ const baseProjectsURL = import.meta.env.VITE_DOMAIN + "/" + projectsPath;
 function buildFetchOptions(method, bodyObject) {
   let fetchOptions = {
     method: method.toLowerCase(),
-    headers: {}
+    headers: {},
   };
 
-  if (method.toLowerCase() === 'post' || method.toLowerCase() === 'put' || method.toLowerCase() === 'patch') {
+  if (
+    method.toLowerCase() === "post" ||
+    method.toLowerCase() === "put" ||
+    method.toLowerCase() === "patch"
+  ) {
     fetchOptions.body = JSON.stringify(bodyObject);
-    fetchOptions.headers['Content-Type'] = 'application/json';
+    fetchOptions.headers["Content-Type"] = "application/json";
   }
 
   const jwtToken = localStorage.getItem("JWT");
   if (jwtToken) {
-    fetchOptions.headers['Authorization'] = `Basic ${jwtToken}`;
+    fetchOptions.headers["Authorization"] = `Basic ${jwtToken}`;
   }
 
   return fetchOptions;
@@ -53,7 +57,6 @@ export async function getProject(projectId) {
 }
 
 export async function deleteProject(projectId) {
-  await makeAPICall(baseProjectsURL, "delete", projectId)
+  await makeAPICall(baseProjectsURL, "delete", projectId);
   loadProjects();
 }
-

@@ -1,26 +1,13 @@
-import { useEffect } from 'react';
-import { validateForm } from '../../views/admin.js';
+import { useState } from "react";
+import { validateForm } from "../../views/admin.js";
 
 export default function ProjectEditForm({ project, type }) {
-  useEffect(() => {
-    const form = document.getElementById('userForm');
+  const [submit, setSubmit] = useState(false);
 
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        // Pass the event to validateForm to handle the submission
-        validateForm(e, type);
-      });
-    }
-
-    // Clean up event listener when the component unmounts
-    return () => {
-      if (form) {
-        form.removeEventListener('submit', (e) => {
-          validateForm(e, type);
-        });
-      }
-    };
-  }, [type]);
+  const handleSubmit = (e) => {
+    setSubmit(!submit);
+    validateForm(e, type, project);
+  };
 
   return (
     <form
@@ -28,6 +15,7 @@ export default function ProjectEditForm({ project, type }) {
       role="input"
       method="post"
       encType="multipart/form-data"
+      onSubmit={handleSubmit}
     >
       <legend className="formLegend">
         <h2>Edit Project</h2>
@@ -41,7 +29,7 @@ export default function ProjectEditForm({ project, type }) {
             placeholder="Sour Note"
             type="text"
             name="projectTitle"
-            defaultValue={project?.projectTitle}
+            defaultValue={!submit ? project?.projectTitle : ""}
           />
           <center>
             <div className="formError" id="formErrorTitle"></div>
@@ -55,7 +43,7 @@ export default function ProjectEditForm({ project, type }) {
             placeholder="Seismic Studios"
             type="text"
             name="clientName"
-            defaultValue={project?.clientName}
+            defaultValue={!submit ? project?.clientName : ""}
           />
           <center>
             <div className="formError" id="formErrorClient"></div>
@@ -65,7 +53,12 @@ export default function ProjectEditForm({ project, type }) {
         <div className="formItem">
           <br />
           <label htmlFor="category">Category *</label>
-          <select id="category" placeholder="Select an Option" name="category" defaultValue={project?.category}>
+          <select
+            id="category"
+            placeholder="Select an Option"
+            name="category"
+            defaultValue={!submit ? project?.category : ""}
+          >
             <option value=""></option>
             <option value="Animation">Animation</option>
             <option value="Commercial">Commercial</option>
@@ -107,7 +100,7 @@ export default function ProjectEditForm({ project, type }) {
             name="description"
             cols="30"
             rows="5"
-            defaultValue={project?.description}
+            defaultValue={!submit ? project?.description : ""}
           ></textarea>
           <center>
             <div className="formError" id="formErrorDescription"></div>
@@ -120,7 +113,7 @@ export default function ProjectEditForm({ project, type }) {
             placeholder="Project Link"
             type="text"
             name="projectLink"
-            defaultValue={project?.projectLink}
+            defaultValue={!submit ? project?.projectLink : ""}
           />
         </div>
 

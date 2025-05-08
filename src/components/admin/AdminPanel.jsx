@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { getProjectList, deleteProject } from '../../services/services.js'
+import { getProjectList, deleteProject } from "../../services/services.js";
 
-import ProjectAddingForm from './ProjectAddingForm'
-import ProjectEditForm from './ProjectEditForm'
+import ProjectAddingForm from "./ProjectAddingForm";
 
 export default function AdminPanel() {
   const [projectList, setProjectList] = useState([]);
@@ -16,12 +15,12 @@ export default function AdminPanel() {
   }
 
   const handleEdit = (project) => {
-    setSelectedProject(project);
-    setPopup({ "visible": true, "type": "edit" });
+    setSelectedProject(JSON.stringify(project));
+    setPopup({ visible: true, type: "edit" });
   };
 
   const handleAdd = () => {
-    setPopup({ "visible": true, "type": "new" });
+    setPopup({ visible: true, type: "new" });
   };
 
   useEffect(() => {
@@ -31,10 +30,8 @@ export default function AdminPanel() {
   return (
     <>
       <div className="topRow">
-        <button className='editButton' onClick={() => handleAdd()}>
-          <div>
-            + Add New Project
-          </div>
+        <button className="editButton" onClick={() => handleAdd()}>
+          <div>+ Add New Project</div>
         </button>
       </div>
       <table className="projectTable">
@@ -48,24 +45,46 @@ export default function AdminPanel() {
             <th>Stills</th>
             <th></th>
           </tr>
-          {projectList.map((p, index) =>
+          {projectList.map((p, index) => (
             <tr className="projectRow" key={index + "-tr"}>
-              <td id={index + '-id'}>{p.id}</td>
-              <td id={index + '-title'}>{p.projectTitle}</td>
-              <td id={index + '-client'}>{p.clientName}</td>
-              <td id={index + '-description'}>{p.description}</td>
-              <td id={index + '-project-link'}>{p.projectLink == "" ? "No Link" : p.projectLink}</td>
-              <td id={index + '-stills'}>Stills</td>
-              <td id={index + '-edit'} className="buttonContainer">
-                <button className='editButton' onClick={() => handleEdit(p)}>
-                  <img className="editIcon" src="/images/edit.svg" alt="Edit Icon" />
+              <td id={index + "-id"}>{p.id}</td>
+              <td id={index + "-title"}>{p.projectTitle}</td>
+              <td id={index + "-client"}>{p.clientName}</td>
+              <td id={index + "-description"}>{p.description}</td>
+              <td id={index + "-project-link"}>
+                {p.projectLink == "" ? "No Link" : p.projectLink}
+              </td>
+              <td id={index + "-stills"}>Stills</td>
+              <td id={index + "-edit"} className="buttonContainer">
+                <button
+                  className="editButton"
+                  onClick={() => {
+                    handleEdit(p);
+                    setSelectedProject(p);
+                  }}
+                >
+                  <img
+                    className="editIcon"
+                    src="/images/edit.svg"
+                    alt="Edit Icon"
+                  />
                 </button>
-                <button className='deleteButton' onClick={() => { deleteProject(p.id); initProjects(); }}>
-                  <img className="editIcon" src="/images/trash.svg" alt="Delete Icon" />
+                <button
+                  className="deleteButton"
+                  onClick={() => {
+                    deleteProject(p.id);
+                    initProjects();
+                  }}
+                >
+                  <img
+                    className="editIcon"
+                    src="/images/trash.svg"
+                    alt="Delete Icon"
+                  />
                 </button>
               </td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
 
@@ -76,13 +95,11 @@ export default function AdminPanel() {
               <ProjectAddingForm type={"new"} />
             ) : (
               <ProjectAddingForm project={selectedProject} type={"edit"} />
-            )
-
-            }
+            )}
           </div>
           <a
             className="editProjectBackground"
-            onClick={() => setPopup({ "visible": false, "type": null })}  // Close popup
+            onClick={() => setPopup({ visible: false, type: null })}
           >
             <div className="editProjectBackground hidden"></div>
           </a>
@@ -91,5 +108,3 @@ export default function AdminPanel() {
     </>
   );
 }
-
-

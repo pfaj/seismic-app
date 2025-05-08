@@ -1,5 +1,5 @@
-import NavItem from './NavItem'
-import NavButton from './NavButton'
+import NavItem from "./NavItem";
+import NavButton from "./NavButton";
 
 function NavLinks() {
   return (

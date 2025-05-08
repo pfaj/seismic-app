@@ -1,7 +1,5 @@
-function HeroImage({source}) {
-  return (
-        <img className="heroImage" src={source}/>
-  );
+function HeroImage({ source }) {
+  return <img className="heroImage" src={source} />;
 }
 
 export default HeroImage;

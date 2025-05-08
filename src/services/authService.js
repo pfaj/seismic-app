@@ -1,11 +1,13 @@
-const authUrl = "http://localhost:9010/" + "v1/" + 'auth/';
+const authUrl = "http://localhost:9010/" + "v1/" + "auth/";
 
 function buildFetchOptions(method, bodyObject) {
   let fetchOptions = {};
   fetchOptions.method = method.toLowerCase();
-  if (fetchOptions.method == 'post' || fetchOptions.method == 'put') {
+  if (fetchOptions.method == "post" || fetchOptions.method == "put") {
     fetchOptions.body = JSON.stringify(bodyObject);
-    fetchOptions.headers = { "Content-Type": "application/x-www-form-urlencoded" };
+    fetchOptions.headers = {
+      "Content-Type": "application/x-www-form-urlencoded",
+    };
   }
   return fetchOptions;
 }
@@ -24,7 +26,7 @@ async function makeAPICall(url, method, idParam, bodyObject) {
 }
 
 export async function authenticate(authBody) {
-  console.log("Authorizing...")
+  console.log("Authorizing...");
   // console.log(authBody);
   let authResponse = await makeAPICall(authUrl, "post", null, authBody);
   // __AUTO_GENERATED_PRINT_VAR_START__

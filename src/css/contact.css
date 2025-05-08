@@ -1,104 +1,105 @@
-main{
-    background-color: var(--darkAccentColor);
-    color: var(--secondaryColor);
+main {
+  background-color: var(--darkAccentColor);
+  color: var(--secondaryColor);
 }
 
-input, select, textarea{
-    font-size: 18px;
-    width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
-    padding: 5px;
-    border: 1px solid var(--secondaryColor);
-    background-color: var(--secondaryColor);
-    color: var(--darkAccentColor);
+input,
+select,
+textarea {
+  font-size: 18px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid var(--secondaryColor);
+  background-color: var(--secondaryColor);
+  color: var(--darkAccentColor);
 }
 
-input:focus{
-    outline: none;
-    border: 2px solid var(--accentColor);
+input:focus {
+  outline: none;
+  border: 2px solid var(--accentColor);
 }
 
-label{
-    font-size: 18px;
-    padding-bottom: 4px;
+label {
+  font-size: 18px;
+  padding-bottom: 4px;
 }
 
 /* .heroImageContainer > .heroImage { */
 /*     height: 20vh; */
 /* } */
 
-.contactContainer{
-    display: flex;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+.contactContainer {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
-.contactForm{
-    background-color: var(--primaryColor);
-    padding: 20px;
-    width: 40%;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px black;
+.contactForm {
+  background-color: var(--primaryColor);
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
 }
 
-.formLegend{
-    text-align: center;
-    padding-bottom: 10px;
-    font-size: 24px;
+.formLegend {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 24px;
 }
 
-.formItems{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+.formItems {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.formItem{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    align-items: center;
-    width: 100%;
+.formItem {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+  width: 100%;
 }
 
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    font-size: 20px;
-    margin-top: 20px;
-    background-color: var(--primaryColor);
-    color: var(--secondaryColor);
-    border: 1px solid var(--accentColor);
-    border-radius: 8px;
-    padding: 5px;
-    width: 100px;
-    height: 30px;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  border: 1px solid var(--accentColor);
+  border-radius: 8px;
+  padding: 5px;
+  width: 100px;
+  height: 30px;
 }
 
-.button:hover{
-    background-color: var(--accentColor);
-    color: var(--primaryColor);
+.button:hover {
+  background-color: var(--accentColor);
+  color: var(--primaryColor);
 }
 
-.formStatus{
-    color: var(--accentColor);
+.formStatus {
+  color: var(--accentColor);
 }
 
-@media(max-width: 1200px) {
-    .contactForm{
-        width: 80%;
-    }
+@media (max-width: 1200px) {
+  .contactForm {
+    width: 80%;
+  }
 }
-@media(max-width: 800px) {
-    .contactForm{
-        width: 90%;
-    }
+@media (max-width: 800px) {
+  .contactForm {
+    width: 90%;
+  }
 }
-

@@ -1,39 +1,44 @@
 export async function validateForm(event, type, project) {
   event.preventDefault();
 
-  document.getElementById("formErrorTitle").innerHTML = '';
-  document.getElementById("formErrorClient").innerHTML = '';
-  document.getElementById("formErrorCategory").innerHTML = '';
-  document.getElementById("formErrorDescription").innerHTML = '';
-  document.getElementById("formSuccess").innerHTML = '';
+  document.getElementById("formErrorTitle").innerHTML = "";
+  document.getElementById("formErrorClient").innerHTML = "";
+  document.getElementById("formErrorCategory").innerHTML = "";
+  document.getElementById("formErrorDescription").innerHTML = "";
+  document.getElementById("formSuccess").innerHTML = "";
 
   let isValid = true;
 
-  let projectTitle = document.getElementById('projectTitle').value.trim();
-  let clientName = document.getElementById('clientName').value.trim();
-  let category = document.getElementById('category').value.trim();
-  let description = document.getElementById('description').value.trim();
+  let projectTitle = document.getElementById("projectTitle").value.trim();
+  let clientName = document.getElementById("clientName").value.trim();
+  let category = document.getElementById("category").value.trim();
+  let description = document.getElementById("description").value.trim();
   // let projectStills = document.querySelector('input[name="projectStills"]').files;
 
   if (!projectTitle) {
-    document.getElementById("formErrorTitle").innerHTML = "Project name is required.";
+    document.getElementById("formErrorTitle").innerHTML =
+      "Project name is required.";
     isValid = false;
   }
 
   if (!clientName) {
-    document.getElementById("formErrorClient").innerHTML = "Client name is required.";
+    document.getElementById("formErrorClient").innerHTML =
+      "Client name is required.";
     isValid = false;
   }
 
   if (!category) {
-    document.getElementById("formErrorCategory").innerHTML = "Please select a category.";
+    document.getElementById("formErrorCategory").innerHTML =
+      "Please select a category.";
     isValid = false;
   }
 
   if (!description) {
-    document.getElementById("formErrorDescription").innerHTML = "Description is required.";
+    document.getElementById("formErrorDescription").innerHTML =
+      "Description is required.";
   } else if (description.length < 10 || description.length > 250) {
-    document.getElementById("formErrorDescription").innerHTML = "Must be between 10 and 250 characters.";
+    document.getElementById("formErrorDescription").innerHTML =
+      "Must be between 10 and 250 characters.";
     isValid = false;
   }
 
@@ -48,70 +53,69 @@ export async function validateForm(event, type, project) {
       if (type == "edit") {
         await editProject(formData, project);
       }
-      document.getElementById("formSuccess").innerHTML = "Form submitted successfully!";
+      document.getElementById("formSuccess").innerHTML =
+        "Form submitted successfully!";
       form.reset();
-    } catch {
-      document.getElementById("formSuccess").innerHTML = "Error submitting form. Please try again.";
+    } catch (error) {
+      document.getElementById("formSuccess").innerHTML =
+        "Error submitting form. Please try again.";
+      console.error("Form submission error:", error);
     }
   }
 }
 
-// function clearErrors() {
-//   const errorElements = [
-//     'formErrorTitle',
-//     'formErrorClient',
-//     'formErrorCategory',
-//     'formErrorDescription'
-//   ];
-//   errorElements.forEach(id => displayError(id, ''));
-//   displayError('formSuccess', '');
-// }
-
-const projectUrl = 'http://localhost:9010/v1/projects/upload'
+const projectUrl = "http://localhost:9010/v1/projects/upload";
 async function uploadProject(formData) {
   try {
     let fetchOptions = {
-      method: 'POST',
+      method: "POST",
       body: formData,
-      mode: 'cors',
-      headers: {}
-    }
+      mode: "cors",
+      headers: {},
+    };
     const jwtToken = localStorage.getItem("JWT");
-    fetchOptions.headers['Authorization'] = `Basic ${jwtToken}`;
+    fetchOptions.headers["Authorization"] = `Basic ${jwtToken}`;
     const response = await fetch(projectUrl, fetchOptions);
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json();
+      console.error("Upload project error:", errorData);
+      throw new Error(
+        `HTTP error! status: ${response.status} - ${JSON.stringify(errorData)}`,
+      );
     }
 
     return await response.json();
   } catch (error) {
-    console.error('Upload project error:', error);
+    console.error("Upload project error:", error);
     throw error;
   }
 }
 
 async function editProject(formData, project) {
-  const projectUrlEdit = `http://localhost:9010/v1/projects/${project.id}`
+  const projectUrlEdit = `http://localhost:9010/v1/projects/${project?.id}`;
   try {
     let fetchOptions = {
-      method: 'POST',
+      method: "PUT",
       body: formData,
-      mode: 'cors',
-      headers: {}
-    }
+      mode: "cors",
+      headers: {},
+    };
     const jwtToken = localStorage.getItem("JWT");
-    fetchOptions.headers['Authorization'] = `Basic ${jwtToken}`;
+    fetchOptions.headers["Authorization"] = `Basic ${jwtToken}`;
     const response = await fetch(projectUrlEdit, fetchOptions);
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json();
+      console.error("Edit project error:", errorData);
+      throw new Error(
+        `HTTP error! status: ${response.status} - ${JSON.stringify(errorData)}`,
+      );
     }
 
     return await response.json();
   } catch (error) {
-    console.error('Upload project error:', error);
+    console.error("Edit project error:", error);
     throw error;
   }
 }
-

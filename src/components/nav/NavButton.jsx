@@ -1,10 +1,10 @@
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function NavButton({link,text}) {
+function NavButton({ link, text }) {
   return (
-        <Link to={link}>
-            <div className="navButton">{text}</div>
-        </Link>
+    <Link to={link}>
+      <div className="navButton">{text}</div>
+    </Link>
   );
 }
 

@@ -1,10 +1,10 @@
-function HeroText({heroText, heroSubText}) {
+function HeroText({ heroText, heroSubText }) {
   return (
-        <div className="heroText">
-            <p>{heroText}</p>
-            <hr className="heroLine"/>
-            <p className="heroSubText">{heroSubText}</p>
-        </div>
+    <div className="heroText">
+      <p>{heroText}</p>
+      <hr className="heroLine" />
+      <p className="heroSubText">{heroSubText}</p>
+    </div>
   );
 }
 
